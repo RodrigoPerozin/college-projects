@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rorigo Destri Perozin">
+    <meta name="description" content="foguete">
+    <title>JS1 - 6 - rodrigoperozin</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+      A NASA precisa de você! Desenvolva um algoritmo que faça a contagem regressiva
+      para o lançamento de um foguete. (Opcional: troque o fundo da página HTML para
+      uma explosão quando acabar a contagem!)
+
+      */
+
+      var cont=10;
+
+      for(cont;cont>=1;cont--){
+
+        alert("Lançamento em: " +cont);
+
+      }
+
+      if(cont==0){
+
+        document.body.style.backgroundImage = "url('imgs/bgFoguete.jpg')";
+        document.body.style.backgroundSize = "110%";
+
+      }
+
+    </script>
+  </body>
+</html>

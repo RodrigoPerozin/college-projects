@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rorigo Destri Perozin">
+    <meta name="description" content="Compras">
+    <title>JS1 - 7 - rodrigoperozin</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+      Desenvolva um algoritmo para que o usuário insira produtos e seus respectivos
+      valores até ele desejar. Após informar todos os produtos, calcule o valor total do pedido
+      e peça a forma de pagamento:
+
+      ● Cheque: o usuário deve selecionar em quantas vezes quer pagar (até 5x) e não
+      há mudança no valor.
+      ● Cartão de crédito: o usuário deve selecionar em quantas vezes quer pagar (até
+      12x), sendo que à prazo acrescenta 5% no valor total.
+      ● Pagamento em boleto: é à vista e desconta 12% no valor total.
+      ● Pagamento em dinheiro:
+      ○ Valor superior à R$300: é à vista e tem desconto de 5%.
+      ○ Valor menor ou igual a R$ 300, ele é à vista e sem desconto.
+
+      Em todas as situações, ele deve mostrar como saída na tela apenas o valor total dos
+      produtos, forma de pagamento, se há ou não parcelamento (se houver, em quantas
+      vezes e o valor de cada parcela) e o valor final de venda.
+
+      */
+
+      var con, opcao;
+      var prod="", produtos="| ";
+      var preco=0, precoTotal=0.0;
+      var parcelado=0, formp=0;
+
+      alert("Bem vindo a o SMercado!");
+      opcao = confirm("Deseja fazer compras?");
+
+      if (opcao) {
+
+        while(opcao){
+
+          opcao = confirm("Deseja adicionar ao carrinho algum/mais produto?");
+
+          if(opcao){
+
+            prod = prompt("Insira o nome do produto desejado: ");
+
+            while (prod=="" || prod==" ") {
+
+              prod = prompt("Insira o nome do produto desejado: ");
+
+            }
+
+            produtos += prod + " | ";
+
+            preco = parseFloat(prompt('Insira o preço do produto "' + prod + '" :'));
+
+            while (preco<=0) {
+
+                preco = parseFloat(prompt('Insira o preço do produto "' + prod + '" :'));
+
+            }
+
+            prod="";
+            precoTotal += preco;
+            preco=0;
+
+          }else{
+
+            if (produtos=="| ") {
+
+              alert("Obrigado por vir!");
+
+            }else {
+
+              while (formp<1 || formp>5) {
+
+                formp = parseInt(prompt(" -----------------------------\n \n Para comprar os seguintes produtos:\n \n" + produtos + "\n \nInforme o número correspondente a forma de pagamento:\n \n1 - Cheque(até 5x)\n \n2 - Cartão de crédito à vista/prazo(até 12x | 5% de desconto)\n \n3 - Em Boleto(à vista com 12% de desconto)\n \n4 - Em dinheiro(compras superiores a 300R$ é à vista com 5% de desconto | Menor que 300R$ é à vista apenas)\n \n5 - Cancelar a compra\n \n -----------------------------"));
+
+                while (isNaN(formp)) {
+
+                  formp = parseInt(prompt(" -----------------------------\n \n Para comprar os seguintes produtos:\n \n" + produtos + "\n \nInforme o número correspondente a forma de pagamento:\n \n1 - Cheque(até 5x)\n \n2 - Cartão de crédito à vista/prazo(até 12x | 5% de desconto)\n \n3 - Em Boleto(à vista com 12% de desconto)\n \n4 - Em dinheiro(compras superiores a 300R$ é à vista com 5% de desconto | Menor que 300R$ é à vista apenas)\n \n5 - Cancelar a compra\n \n -----------------------------"));
+
+                }
+
+              }
+
+              switch (formp) {
+
+                case 1:
+
+                  while (parcelado<1 || parcelado>5) {
+
+                    parcelado = parseInt(prompt("Informe em quantas parcelas deseja pagar (Ex: 2) a seguir: "));
+
+                    while (isNaN(parcelado)) {
+
+                      parcelado = parseInt(prompt("Informe em quantas parcelas deseja pagar (Ex: 2) a seguir: "));
+
+                    }
+
+                  }
+
+                  con = confirm(" -----------------------------\n \nTodos os produtos a seguir:\n \n" + produtos + "\n \n Estão sendo comprados em Cheque em " + parcelado + "x, pagando por parcela " + (precoTotal/parcelado) + "R$,  custando então " + precoTotal + "R$ no total.\n \nAperte OK para validar a compra!");
+
+                  if(con){
+
+                    alert("Obrigado pela sua compra! Volte Sempre!");
+
+                  }else{
+
+                    alert("Que pena! Volte Sempre!");
+
+                  }
+
+                  opcao=true;
+                  resultado="";
+                  precoTotal=0;
+                  parcelado=0;
+                  formp=0
+
+                  break;
+
+                case 2:
+
+                  while (parcelado<0 || parcelado>12) {
+
+                    parcelado = parseInt(prompt("Informe em quantas parcelas deseja pagar (Ex: 2), ou digite '0' para pagar à vista: "));
+
+                    while (isNaN(parcelado)) {
+
+                      parcelado = parseInt(prompt("Informe em quantas parcelas deseja pagar (Ex: 2), ou digite '0' para pagar à vista: "));
+
+                    }
+
+                  }
+
+                  if (parcelado==0) {
+
+                    con = alert(" -----------------------------\n \nTodos os produtos a seguir:\n \n" + produtos + "\n \n Foram comprados comprados em Cartão de crédito à vista, pago então " + precoTotal + "R$ no total.\n \nAperte OK para confirmar!");
+
+                    if(con){
+
+                      alert("Obrigado pela sua compra! Volte Sempre!");
+
+                    }else {
+
+                      alert("Que pena! Volte Sempre!");
+
+                    }
+
+                  }else{
+
+                    con = confirm(" -----------------------------\n \nTodos os produtos a seguir:\n \n" + produtos + "\n \n Estão sendo comprados em Cartão de crédito em" + parcelado + "x, pagando por parcela" + (precoTotal/parcelado) + "R$, custando então " + precoTotal + "R$ no total.\n \nAperte OK para validar a compra!");
+
+                    if(con){
+
+                      alert("Obrigado pela sua compra! Volte Sempre!");
+
+                    }else{
+
+                      alert("Que pena! Volte Sempre!");
+
+                    }
+
+                  }
+
+                  opcao=true;
+                  resultado="";
+                  precoTotal=0;
+                  parcelado=0;
+                  formp=0
+
+                  break;
+
+                case 3:
+
+                  con = confirm(" -----------------------------\n \nTodos os produtos a seguir:\n \n" + produtos + "\n \n Estão sendo comprados através de boleto á vista com 12% de desconto, que estava por " + precoTotal + "R$, passou a custar então " + (precoTotal - (precoTotal*0.12)) + "R$ no total.\n \nAperte OK para validar a compra!");
+
+                  if(con){
+
+                    alert("Obrigado pela sua compra! Volte Sempre!");
+
+                  }else{
+
+                    alert("Que pena! Volte Sempre!");
+
+                  }
+
+                  opcao=true;
+                  resultado="";
+                  precoTotal=0;
+                  parcelado=0;
+                  formp=0
+
+                  break;
+
+                case 4:
+
+                  if (precoTotal>300) {
+
+                    con = confirm(" -----------------------------\n \nTodos os produtos a seguir:\n \n" + produtos + "\n \n Estão sendo comprados em dinheiro com 5% de desconto, que de " + precoTotal + "R$, ficou custando então " + (precoTotal - (precoTotal*0.05)) + "R$ no total.\n \nAperte OK para validar a compra!");
+
+                    if(con){
+
+                      alert("Obrigado pela sua compra! Volte Sempre!");
+
+                    }else{
+
+                      alert("Que pena! Volte Sempre!");
+
+                    }
+
+                  }else {
+
+                    con = confirm(" -----------------------------\n \nTodos os produtos a seguir:\n \n" + produtos + "\n \n Estão sendo comprados em dinheiro à vista custando então " + precoTotal + "R$ no total.\n \nAperte OK para validar a compra!");
+
+                    if(con){
+
+                      alert("Obrigado pela sua compra! Volte Sempre!");
+
+                    }else{
+
+                      alert("Que pena! Volte Sempre!");
+
+                    }
+
+                  }
+
+                  opcao=true;
+                  resultado="";
+                  precoTotal=0;
+                  parcelado=0;
+                  formp=0
+
+                  break;
+
+                case 5:
+
+                  alert("Obrigado por vir!");
+
+                  break;
+
+                default:
+
+              }
+
+            }
+
+            opcao=false;
+            resultado="";
+            precoTotal=0;
+            parcelado=0;
+            formp=0
+
+          }
+
+        }
+
+      }else {
+
+        alert("Obrigado pela visita!");
+
+      }
+
+    </script>
+  </body>
+</html>

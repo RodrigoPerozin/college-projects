@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rorigo Destri Perozin">
+    <meta name="description" content="Ola usuario">
+    <title>JS1 - 1 - rodrigoperozin</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+      Um CEI está precisando de um programa que informe quantos alunos eles
+      possuem em cada categoria de ensino. Para isso acontecer deve ser realizado um
+      cadastro onde é informada apenas a idade de cada aluno, para poder contabilizar
+      adequadamente de acordo com a categoria. O programa, no final, deve mostrar uma
+      lista de quantos alunos eles possuem por categoria. Segue as idades para cada
+      categoria:
+
+      Categoria             Idade
+      Berçário I            Até 1 ano e 1 mês
+      Berçário II           1 ano e 2 meses até 2 anos e 1 mês
+      Maternal I            2 anos e 2 meses até 2 anos e 10 meses
+      Maternal II           2 anos e 11 meses até 3 anos e 10 meses
+      Infantil              3 anos e 11 meses até 5 anos
+
+      */
+
+      var rep=true, con=true;
+      var idade, berI=0, berII=0, maternalI=0, maternalII=0, infantil=0;
+
+      alert("Bem vindo ao CEI!");
+      
+      while (rep) {
+
+        con = confirm("Deseja adicionar algum/mais aluno?");
+
+        if (con==false && berI==0 && berII==0 && maternalI==0 && maternalII==0 && infantil==0){
+
+          alert("até mais!");
+          rep=false;
+
+        }else if (con==false) {
+
+          alert("--------------------\n \nAlunos por categoria:\n \nBerçário I: " + berI + "\n \nBerçário II: " + berII + "\n \nMaternal I: " + maternalI + "\n \nMaternal II: " + maternalII + "\n \nInfantil: " + infantil + "\n \n--------------------");
+
+        }else if (con){
+
+          idade = parseFloat(prompt("Digite quantos anos e meses tem o aluno a ser cadastrado Ex:2.01 (dois anos e 1 mês) (a categoria é escolhida automaticamente) :"));
+          while (idade<0 || idade>5 || isNaN(idade)) {
+
+            idade = parseFloat(prompt("Digite quantos anos e meses tem o aluno a ser cadastrado Ex:2.01 (dois anos e 1 mês) (a categoria é escolhida automaticamente) :"));
+
+          }
+
+          if (idade>=0 && idade<=1.01) {
+
+            berI += 1;
+
+          }else if (idade>=1.02 && idade<=2.01) {
+
+            berII += 1;
+
+          }else if (idade>=2.02 && idade<=2.1) {
+
+            maternalI += 1;
+
+          }else if (idade>=2.11 && idade<=3.1) {
+
+            maternalII += 1;
+
+          }
+          else if (idade>=3.11 && idade<=5) {
+
+            infantil += 1;
+
+          }else{
+
+            alert("OK")
+
+          }
+
+        }
+
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rodrigo Destri Perozin">
+    <meta name="description" content="Mercado">
+    <title>Mercado Zézin</title>
+  </head>
+  <body>
+
+    <form name='frm1' onsubmit="return efetuarCompra()" method="post">
+
+    <h2>Bem vindo ao mercado Zézin</h2><br>
+    <div style="border: 2px solid #000000;width: 200px;">
+    <h4>Insira o nome do produto: </h4>
+    <input type="text" name="produto" value="">
+    <h4 >Insira o preço do produto: </h4>
+    <input  type="text" name="preco" value=""><br><br>
+    <input  type="button" onclick='addProd()' value="Adicionar produto">
+  </div>
+  <br>
+    <div style="border: 2px solid #000000;width: 200px;">
+    <p id='prodAd' style="font-style: serief; font-size: 18px;">Adicionados: 0</p>
+    <p id='precoAd' style="font-style: serief; font-size: 14px;">Preço Acumulado: 0 R$</p>
+    <input  type="submit" name="concompra" value="Confirmar">
+    </div>
+  </form>
+  <script>
+
+    var prodAd=0;
+    var precoT = 0;
+
+    function efetuarCompra(){
+      var frmpag=null;
+      if (precoT==0) {
+        alert("Você não pode pagar sem ter inserido um produto antes!")
+      }else {
+
+        while (frmpag<1 || frmpag>5) {
+          frmpag = prompt("Selecione uma das formas de pagamento:\n \n1 - Cheque(até 5x).\n \n2 - Cartão de crédito à vistas.\n \n3 - Cartão de crédito a prazo(até 12x com mais 5% no valor total).\n \n4 - Boleto(à vista com 12% de desconto no valor total).\n \n5 - Valor superior à R$300 é à vista e tem desconto de 5%, valor menor que R$ 300 é à vista sem desconto.")
+        }
+
+        var vezes=0;
+
+        if (frmpag==1) {
+          while (vezes<1 || vezes>5) {
+            vezes = prompt("Informe em quantas vezes você deseja pagar(de 1x até 5x):")
+          }
+          alert("Compra efetuada com sucesso!\nInformações da compra:\n \nForma de pagamento: cheque com parcelamento em " + vezes + "x, " + (precoT/vezes) + "R$ por parcela.\n \nValor total dos produtos: " + precoT + "R$.\n \nValor final da venda: " + precoT + "R$.")
+        }else if (frmpag==2) {
+          alert("Compra efetuada com sucesso!\nInformações da compra:\n \nForma de pagamento: Cartão de crédito à vista(sem parcelas).\n \nValor total dos produtos: " + precoT + "R$.\n \nValor final da venda: " + precoT + "R$.")
+        }else if (frmpag==3) {
+          while (vezes<1 || vezes>12) {
+            vezes = prompt("Informe em quantas vezes você deseja pagar(de 1x até 12x):")
+          }
+          alert("Compra efetuada com sucesso!\nInformações da compra:\n \nForma de pagamento: Cartão de crédito com parcelamento em " + vezes + "x, " + (0.05 * precoT)/vezes + "R$ por parcela.\n \nValor total dos produtos: " + (precoT ) + "R$.\n \nDescontos/aumentos: aumento de 5% do valor total.\n \nValor final da venda: " + (0.05 * precoT) + "R$.")
+        }else if (frmpag==4) {
+          alert("Compra efetuada com sucesso!\nInformações da compra:\n \nForma de pagamento: Boleto à vista(sem parcelas).\n \nValor total dos produtos: " + precoT + "R$.\n \nDescontos/aumentos: desconto de 12% do valor total.\n \nValor final da venda: " + (precoT * 0.12) + "R$.")
+        }else if (frmpag==5) {
+          if (precoT>300) {
+            alert("Compra efetuada com sucesso!\nInformações da compra:\n \nForma de pagamento: Dinheiro.\n \nValor total dos produtos: " + precoT + "R$.\n \nDescontos/aumentos: desconto de 5% do valor total.\n \nValor final da venda: " + (0.05 * precoT) + "R$.")
+          }else {
+            alert("Compra efetuada com sucesso!\nInformações da compra:\n \nForma de pagamento: Dinheiro.\n \nValor total dos produtos: " + precoT + "R$.\n \nValor final da venda: " + precoT + "R$.")
+          }
+        }
+
+        return true
+      }
+      return false;
+    }
+
+    function addProd(){
+
+      if (document.frm1.produto.value=="" || !(isNaN(document.frm1.produto.value))) {
+        alert("Preencha o campo do produto corretamente!")
+        document.frm1.produto.focus()
+      }else if(document.frm1.preco.value=="" || document.frm1.preco.value=="0" || isNaN(document.frm1.preco.value) || document.frm1.preco.value.includes(",")) {
+        alert("Preencha o campo do preco corretamente!\n \nObs: use  .  no lugar de  , ")
+        document.frm1.preco.focus()
+      }else {
+
+        prodAd += 1
+        precoT += (parseFloat(document.frm1.preco.value))
+        document.getElementById('prodAd').innerHTML = ("Adicionados: " + prodAd);
+        document.getElementById('precoAd').innerHTML = ("Preço Acumulado: " + precoT + " R$");
+        document.frm1.produto.value = ""
+        document.frm1.preco.value = ""
+
+      }
+    }
+
+  </script>
+  </body>
+</html>

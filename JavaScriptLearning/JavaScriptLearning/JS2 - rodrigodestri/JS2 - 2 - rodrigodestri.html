@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Registro P.F Colgadell</title>
+    <style>
+      .frm h1{
+        margin-top: 0;
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 400;
+        font-family: monospace;
+      }
+      .frm h3{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        font-family: sans-serif;
+      }
+      .frm span{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .frm #btnregistrar{
+        font-size: 20px;
+        font-style: normal;
+        margin-top: 10px;
+        font-weight: normal;
+        font-family: sans-serif;
+        border: 2px solid #000000;
+        background-color: #99ee99;
+      }
+      .frm #mostrar{
+        font-size: 20px;
+        font-style: normal;
+        margin-top: 10px;
+        font-weight: normal;
+        font-family: sans-serif;
+        border: 2px solid #000000;
+        background-color: #99ee99;
+      }
+      .formulario{
+        border: 3px solid #000000;
+        background-color: #a2d2d2;
+        padding: 15px;
+        width: 350px;
+        text-align: center;
+      }
+      #funcionario{
+        height: 20px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        font-family: sans-serif;
+      }
+      .campos{
+        border: 2px solid #000000;
+        padding: 5px;
+        background-color: #d3d3d3;
+      }
+    </style>
+  </head>
+  <body>
+    <div name='formulario' class="formulario" onsubmit="return mostra()">
+      <form class="frm" action="" method="post">
+        <h1>SRPF</h1>
+        <h3>Preencha as informações a seguir:</h3>
+        <div class="campos">
+          <span>Funcionário: <input type="text" id='funcionario' name="funcionario" value="" placeholder="Ex: Cléber"></span>
+        </div>
+        <input type="button" id="btnregistrar" onclick="registra()"name="registrar" value="Registrar"><br>
+        <input type="submit" id="mostrar" name="mostrar" value="Consultar">
+      </form>
+    </div>
+  </body>
+  <script>
+    var lista = "Lista:\n";
+    function registra(){
+
+      var func = document.getElementById("funcionario");
+
+      if (func.value=="" || func.value.length<2 || !isNaN(func.value)) {
+        alert("Insira um nome válido!");
+      }else {
+        lista += (func.value + "\n");
+        func.value = ""
+      }
+    }
+
+    function mostra(){
+      let con;
+      if (lista=="Lista:\n") {
+        alert("Não há funcionários registrados!");
+      }else {
+        alert(lista);
+        con = confirm("Deseja continuar inserindo funcionários?");
+        if (con==true) {
+          return false;
+        }else {
+          return true;
+        }
+      }
+      return false;
+
+    }
+  </script>
+</html>

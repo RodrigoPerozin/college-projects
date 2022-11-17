@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rorigo Destri Perozin">
+    <meta name="description" content="Elevador">
+    <title>JS1 - 5 - rodrigoperozin</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+      Desenvolva um algoritmo para um elevador levando em consideração que no
+      elevador pode entrar apenas 7 pessoas e/ou no máximo 560kg.
+      Caso o peso chegue no máximo, informe para a última pessoa que ‘tentou’ entrar que ela deve esperar o
+      próximo elevador. Além disso, não deixe a 8a pessoa informar seu peso, apenas avise
+      que o elevador está lotado e que não é possível a entrada de outra pessoa. No final,
+      mostre quantas pessoas estão dentro do elevador e o peso total.
+
+      */
+
+      var p=0;
+      var pesoMax=560;
+      var peso=0;
+      var pesototal=0;
+      var entrar;
+
+        while (p<=7) {
+
+          if((p==7) || (pesototal>=pesoMax)){
+
+          entrar = confirm("Olá, Deseja entrar no elevador? ");
+
+            if(entrar==true){
+
+              alert("O elevador está lotado! Espere o próximo elevador!\n Pessoas no elevador: " + p + "\nPeso acumulado no elevador: " + pesototal);
+              p=-1;
+              pesototal=0;
+              alert("O próximo elevador chegou!");
+            }else {
+
+              alert("Que pena!\n" + "Pessoas no elevador: " + p)
+
+            }
+
+            }else{
+
+              entrar = confirm("Olá, Deseja entrar no elevador? ");
+
+              if(entrar==true){
+
+                if(p==0){
+
+                  while (peso==0) {
+                      peso = parseInt(prompt("Informe seu peso: "));
+                    if(isNaN(peso)){
+                      peso=0;
+                    }else{
+                      while (peso <= 2) {
+                        peso = parseInt(prompt("Informe seu peso: "));
+                      }
+                    }
+                  }
+
+                  pesototal+=peso;
+                  p++
+                  alert("Entrou!\n" + "Pessoas no elevador: " + p + "\n" + "Peso acumulado no elevador: " + pesototal);
+                  peso=0;
+
+                }else{
+                  while (peso==0) {
+                      peso = parseInt(prompt("Informe seu peso: "));
+                    if(isNaN(peso)){
+                      peso=0;
+                    }else{
+                      while (peso <= 2) {
+                        peso = parseInt(prompt("Informe seu peso: "));
+                      }
+                    }
+                  }
+                  pesototal+=peso;
+                  p++
+                  alert("Entrou!\n" + "Pessoas no elevador: " + p + "\n" + "Peso acumulado no elevador: " + pesototal);
+                  peso=0;
+                }
+
+              }else{
+
+                alert("Volte Sempre!");
+
+              }
+
+            }
+
+        }
+
+    </script>
+  </body>
+</html>

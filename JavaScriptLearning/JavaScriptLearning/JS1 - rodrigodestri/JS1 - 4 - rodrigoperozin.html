@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rorigo Destri Perozin">
+    <meta name="description" content="Lista de números">
+    <title>JS1 - 4 - rodrigoperozin</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+      Desenvolva um programa que liste todos os números pares entre dois números informados pelo usuário.
+
+      */
+
+      var numeroUm = parseInt(prompt("Insira o primeiro número: "));
+      var numeroDois = parseInt(prompt("Insira o segundo número: "));
+
+      if (numeroDois>numeroUm){
+
+        var i = numeroUm;
+        var res = "";
+
+        for (i;i<=numeroDois-2;i++){
+
+          if (i%2 == 0) {
+
+            res += i + ", ";
+
+          }
+
+        }
+
+        if (((numeroDois-1)%2 == 0)){
+
+          res += (numeroDois-1) + ".";
+
+        }else if(((numeroDois-1)%2 != 0)){
+
+          res += numeroDois + ".";
+
+        }
+
+        alert("Entre os números indicados, os que são pares são: " + res);
+
+      }else{
+
+        alert("Reinicie o programa e insira valores válidos!");
+
+      }
+
+    </script>
+  </body>
+</html>

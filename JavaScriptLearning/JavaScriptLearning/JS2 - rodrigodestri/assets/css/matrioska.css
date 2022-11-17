@@ -1,0 +1,112 @@
+header h1{
+  font-size: 38px;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: 400;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 40px;
+  text-shadow: 4px 4px 4px #d3d3d3;
+}
+
+header div img{
+  float: left;
+  width:60px;
+  height: 100px;
+  margin-left: 60px;
+}
+
+#clear1{
+  clear: both;
+}
+
+h2{
+  font-size: 28px;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: 400;
+  margin-top: 0px;
+  text-shadow: 4px 4px 4px #d3d3d3;
+}
+
+#entrada-inputs input{
+  border: 3px solid #000000;
+  font-size: 16px;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+#entrada-inputs #resetar{
+  background-color: #d3d3d3;
+  border: 3px solid #000000;
+  font-size: 18px;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: 400;
+  padding: 5px;
+  margin-left: 108px;
+}
+
+#entrada-inputs #enviar{
+  background-color: #90ee90;
+  border: 3px solid #000000;
+  font-size: 18px;
+  font-style: normal;
+  height: 50px;
+  font-family: sans-serif;
+  font-weight: 400;
+  padding: 5px;
+  margin-left: 10px;
+  width: 100px;
+}
+
+#consulta-btns{
+  float: left;
+  margin-left: 70px;
+  text-shadow: 4px 4px 4px #d3d3d3;
+}
+
+#consulta-btns button{
+  width: 400px;
+}
+
+#entrada{
+  float: left;
+  margin-left: 40px;
+}
+
+#clear2{
+  clear:both;
+}
+
+#entrada-inputs{
+  border: 3px solid #000000;
+  padding: 10px;
+}
+
+.btnsCons{
+  font-size: 18px;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: 400;
+  background-color: #054F77;
+  color: #ffffff;
+  border: 3px solid #000000;
+  width: 28%;
+}
+
+#zerarValores{
+  margin-left: 250px;
+  border: 3px solid #000000;
+  background-color: red;
+  color: #ffffff;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: 400;
+}

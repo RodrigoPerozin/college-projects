@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rodrigo Destri Perozin">
+    <meta name="description" content="Placa do carro">
+    <title>Prefeitura de Pedra Lisa</title>
+  </head>
+  <script>
+
+    function valida(){
+
+      if (document.formulario.num.value<0 || document.formulario.num.value>9 || document.formulario.num.value=="" || isNaN(document.formulario.num.value)) {
+        alert("Insira um valor válido!")
+        document.formulario.num.focus()
+      }else {
+        var num = document.formulario.num.value
+        if (num==0 || num==5) {
+        alert("Seu carro não pode ir as ruasa as Segundas-feiras!")
+      }else if (num==1 || num==6) {
+        alert("Seu carro não pode ir as ruas as Terças-feiras!")
+      }else if (num==2 || num ==7) {
+        alert("Seu carro não pode ir as ruas as Quartas-feiras!")
+      }else if (num==3 || num==8) {
+        alert("Seu carro não pode ir as ruas as Quintas-feiras!")
+      }else {
+        alert("Seu carro não pode ir as ruas as Sextas-feiras!")
+      }
+
+        return true;
+      }
+      return false;
+    }
+
+  </script>
+  <body>
+
+    <h2>Sistema de rodízio de veículos</h2><br><br>
+
+    <form name='formulario' method="post" onsubmit="return valida()">
+
+      <h4>Informe o último número da placa do seu carro:<h4>
+      <input type="text" name="num" value=""><br><br>
+      <input type="submit" value="Fazer Consulta">
+
+    </form>
+
+  </body>
+</html>

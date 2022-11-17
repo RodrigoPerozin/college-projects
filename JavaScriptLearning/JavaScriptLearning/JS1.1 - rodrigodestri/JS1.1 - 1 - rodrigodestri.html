@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rodrigo Destri Perozin">
+    <meta name="description" content="IMC">
+    <title>Calcular IMC</title>
+  </head>
+  <script>
+
+    function valida(){
+
+      if (document.frm.peso.value=="" || isNaN(document.frm.peso.value) || (document.frm.peso.value.includes(","))) {
+
+        alert('preencha o campo peso corretamente!\n \nObs: use " . " no lugar de " , "')
+        document.frm.peso.focus()
+
+      }else if (document.frm.altura.value=="" || isNaN(document.frm.altura.value) || (document.frm.peso.value.includes(","))){
+
+        alert('preencha o campo altura corretamente!\n \nObs: use " . " no lugar de " , "')
+        document.frm.altura.focus()
+
+      }else {
+
+        var peso = document.frm.peso.value
+        var altura =  document.frm.altura.value
+        var res = peso/(altura^2)
+
+        if (res<17) {
+          alert("Muito abaixo do peso!")
+        } else if (res>=17 && res<=18.49) {
+          alert("abaixo do peso!")
+        }else if (res>=18.5 && res<= 24.99) {
+          alert("Peso normal!")
+        }else if (res>=25 && res<=29.99) {
+          alert("Acima do peso!")
+        }else if (res>=30 && res<=34.99) {
+          alert("Obesidade I !")
+        }else if (res>=35 && res<=39.99) {
+          alert("Obesidade II (severa)!")
+        }else {
+          alert("Obesidade III(Mórbida)!")
+        }
+
+        return true;
+
+      }
+      return false;
+    }
+
+  </script>
+  <body>
+    <!--
+
+    Faça um programa que calcule o IMC de uma pessoa, mostre o IMC e uma das
+    mensagens abaixo de acordo com seu índice.
+    Resultado Mensagem:
+
+    Abaixo de 17 Muito abaixo do peso
+    Entre 17 e 18,49 Abaixo do peso
+    Entre 18,5 e 24,99 Peso normal
+    Entre 25 e 29,99 Acima do peso
+    Entre 30 e 34,99 Obesidade I
+    Entre 35 e 39,99 Obesidade II (severa)
+    Acima de 40 Obesidade III (mórbida)
+
+    -->
+
+    <h1>Bem vindo!</h1><br>
+
+    <form name='frm' onsubmit='return valida()' method="post">
+
+      Informe seu peso  : <input type="text" name="peso" value=""><br>
+      Informe sua altura:<input type="text" name="altura" value=""><br><br>
+      <input type="submit" value="Calcular IMC">
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rodrigo Destri Perozin">
+    <meta name="description" content="Controle de estoque de matrioskas">
+    <meta name="keywords" content="matrioska, controle de estoque">
+    <link rel="stylesheet" href="assets/css/matrioska.css">
+    <title>FLFi - Matrioska</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>FLFi - Controle de estoque de Matrioskas:</h1>
+        <img src="imgs\matrioska.png" alt="">
+        <div id="clear1"></div>
+      </div>
+    </header>
+      <div name='entrada1' id='entrada'>
+      <h2>Entrada no estoque</h2>
+        <div name='diventrada2' id="entrada-inputs">
+          <span name='spanqntdE'>Quantidade:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id='qntdE' name="qntdE" value="" placeholder="Ex: 1"></span><br><br>
+          <span>Valor unitário:&nbsp;<input type="text" id="valorU" name="valorU" value="" placeholder="Ex: 1.99"></span><br><br>
+          <input type="button" id="resetar" onclick="resetar()" value="Resetar"><input type="button" id="enviar" onclick="enviar()" value="Enviar">
+        </div>
+      </div>
+      <div id='consulta-btns'>
+        <h2>Consultas</h2>
+        <button type="button" onclick="consVEE()"class='btnsCons'name="CVemE">Consultar Valor em Estoque</button><br><br>
+        <button type="button" onclick="consQEE()"class='btnsCons'name="CQemE">Consultar Quantidade em Estoque</button><br><br>
+        <button type="button" onclick="consVEQEE()"class='btnsCons'name="CVQemE">Consultar Valor/Quantidade em Estoque</button>
+      </div>
+      <div id="clear2"></div><br><br><br>
+      <input id='zerarValores' type="button" onclick="zerarValores()" name="zerarValores" value="Zerar Valor e Quantidade em estoque">
+  </body>
+  <script src="assets\js\matrioska.js" charset="utf-8"></script>
+</html>
