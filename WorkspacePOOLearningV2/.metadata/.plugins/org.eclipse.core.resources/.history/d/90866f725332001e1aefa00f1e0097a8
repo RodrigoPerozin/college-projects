@@ -1,0 +1,14 @@
+package br.com.exercicio3;
+
+public class Retangulo {
+	private int base;
+	private int altura;
+	
+	public int getBase() {
+		return base;
+	}
+	public int getAltura() {
+		return altura;
+	}
+	
+}

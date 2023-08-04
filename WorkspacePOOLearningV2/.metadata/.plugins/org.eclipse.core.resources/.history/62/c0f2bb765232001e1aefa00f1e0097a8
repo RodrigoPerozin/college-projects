@@ -1,0 +1,15 @@
+package br.com.exercicio2;
+
+public class Livro {
+	private String titulo;
+	private String autor;
+	private int anoPublicacao;
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+}

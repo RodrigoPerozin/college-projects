@@ -1,0 +1,6 @@
+package br.com.exercicio3;
+
+public class Retangulo {
+	private int base;
+	private int altura;
+}

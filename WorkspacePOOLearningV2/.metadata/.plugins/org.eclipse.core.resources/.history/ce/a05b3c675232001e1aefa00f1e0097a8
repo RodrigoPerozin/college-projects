@@ -1,0 +1,6 @@
+package br.com.exercicio2;
+
+public class Livro {
+	private String titulo;
+	private String autor;
+}

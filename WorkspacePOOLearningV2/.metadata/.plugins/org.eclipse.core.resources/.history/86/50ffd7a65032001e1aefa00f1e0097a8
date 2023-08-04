@@ -1,0 +1,6 @@
+package br.com.exercicio1;
+
+public class Pessoa {
+	private nome;
+	
+}

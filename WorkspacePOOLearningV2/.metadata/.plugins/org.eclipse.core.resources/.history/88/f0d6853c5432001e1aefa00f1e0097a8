@@ -1,0 +1,20 @@
+package br.com.exercicio4;
+
+public class Aluno {
+	private String nome;
+	private int matricula;
+	private String curso;
+	private double nota;
+	public String getNome() {
+		return nome;
+	}
+	public int getMatricula() {
+		return matricula;
+	}
+	public String getCurso() {
+		return curso;
+	}
+	public double getNota() {
+		return nota;
+	}
+}

@@ -1,0 +1,45 @@
+package br.com.encapsulamento;
+import javax.swing.*;
+import br.com.exercicio1.*;
+import br.com.exercicio2.Livro;
+import br.com.exercicio3.Retangulo;
+import br.com.exercicio4.Aluno;
+import br.com.exercicio5.Carro;
+
+public class Aula {
+
+	public static void main(String[] args) {
+		
+		//COMEÇO IMERSÃO
+		//ContaBancaria conta = new ContaBancaria();
+		//conta.depositar(500.0);
+		//double saldoAtual = conta.getSaldo();
+		//JOptionPane.showMessageDialog(null, "Saldo Atual: " + saldoAtual);
+
+		//EXERCICIO1
+		//Pessoa pessoa = new Pessoa("Rodrigo", 20, "rodrigoklenex@gmail.com");
+		//JOptionPane.showMessageDialog(null, "Nome: "+pessoa.getNome()+"\nIdade: "+pessoa.getIdade()+"\nEmail: "+pessoa.getEmail());
+		
+		//EXERCICIO2
+		//Livro livro = new Livro("Livro de Rodrigo", "Rodrigo Destri", 2023);
+		//JOptionPane.showMessageDialog(null, "Titulo: "+livro.getTitulo()+"\nAutor: "
+		//		+livro.getAutor()+"\nAno Publicação: "
+		//		+livro.getAnoPublicacao());
+		
+		//EXERCICIO3
+		//Retangulo retangulo = new Retangulo(43, 60);
+		//JOptionPane.showMessageDialog(null, "Area retângulo: "+retangulo.calculaArea()+"m²"
+		//		+"\nPerímetro retângulo: "+retangulo.calculaPerimetro());
+		
+		//EXERCICIO4
+		//Aluno aluno = new Aluno("Rodrigo Destri", 12345, "ADS");
+		//aluno.setNota(9.5);
+		//JOptionPane.showMessageDialog(null, "Nota do "+aluno.getNome()+": "+aluno.getNota());
+	
+		//EXERCICIO5
+		//Carro carro = new Carro("Ford", "Ka", 2010);
+		//carro.exibirInformacoes();
+		
+	}
+
+}

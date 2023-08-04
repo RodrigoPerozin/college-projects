@@ -1,0 +1,21 @@
+1691102210814	Delete element
+1691102282411	Encapsulate field 'saldo'
+1691103001548	Delete element
+1691103357032	Encapsulate field 'nome'
+1691103368414	Encapsulate field 'idade'
+1691103372206	Encapsulate field 'email'
+1691104014574	Encapsulate field 'titulo'
+1691104021057	Encapsulate field 'autor'
+1691104025601	Encapsulate field 'anoPublicacao'
+1691104409615	Encapsulate field 'base'
+1691104414471	Encapsulate field 'altura'
+1691104757889	Encapsulate field 'nome'
+1691104762155	Encapsulate field 'matricula'
+1691104767008	Encapsulate field 'curso'
+1691104771358	Encapsulate field 'nota'
+1691105290234	Encapsulate field 'marca'
+1691105295162	Encapsulate field 'modelo'
+1691105299099	Encapsulate field 'ano'
+1691105863121	Move compilation unit
+1691105931050	Rename package 'br.com.encapsulamento'
+1691106710229	Rename package 'be.com.exercicio0'
